@@ -18,14 +18,14 @@ public class PrimeiraClasseDisciplinaAluno {
 		String matricula = JOptionPane.showInputDialog("Data da Matrícula?");
 		String serie = JOptionPane.showInputDialog("Qual Série?");
 		String escola = JOptionPane.showInputDialog("Qual o nome da escola?");
-		String disciplina1 = JOptionPane.showInputDialog("Disciplina 1?");
-		String nota1 = JOptionPane.showInputDialog("Qual a nota 1?");
-		String disciplina2 = JOptionPane.showInputDialog("Disciplina 2?");
-		String nota2 = JOptionPane.showInputDialog("Qual a nota 2?");
-		String disciplina3 = JOptionPane.showInputDialog("Disciplina 3?");
-		String nota3 = JOptionPane.showInputDialog("Qual a nota 3?");
-		String disciplina4 = JOptionPane.showInputDialog("Disciplina 4?");
-		String nota4 = JOptionPane.showInputDialog("Qual a nota 4?");
+//		String disciplina1 = JOptionPane.showInputDialog("Disciplina 1?");
+//		String nota1 = JOptionPane.showInputDialog("Qual a nota 1?");
+//		String disciplina2 = JOptionPane.showInputDialog("Disciplina 2?");
+//		String nota2 = JOptionPane.showInputDialog("Qual a nota 2?");
+//		String disciplina3 = JOptionPane.showInputDialog("Disciplina 3?");
+//		String nota3 = JOptionPane.showInputDialog("Qual a nota 3?");
+//		String disciplina4 = JOptionPane.showInputDialog("Disciplina 4?");
+//		String nota4 = JOptionPane.showInputDialog("Qual a nota 4?");
 		
 		Aluno aluno1 = new Aluno(); /* Aqui será o João */
 		
