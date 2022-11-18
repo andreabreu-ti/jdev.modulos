@@ -8,7 +8,8 @@ import javax.swing.JOptionPane;
 import jdev.modulos.modulo9.classes.Aluno;
 import jdev.modulos.modulo9.classes.Disciplina;
 
-public class PrimeiraClasseRemoverRepetir {
+//AULA - Percorrendo lista pelas posições
+public class PrimeiraClassePercorrendoListaPosicao {
 
 	public static void main(String[] args) {
 
@@ -46,28 +47,29 @@ public class PrimeiraClasseRemoverRepetir {
 					posicao++;
 					continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
 				}
-
 			}
 
 			alunos.add(aluno1);
 		}
 
-		for (Aluno aluno : alunos) {
+		for (int pos = 0; pos < alunos.size(); pos++) {
 
-			// AULA - Procurando um aluno na lista e calculando a média
-			if (aluno.getNome().equalsIgnoreCase("andre")) {
-				
-				System.out.println(aluno.toString());// Descrição do objeto na memoria
-				System.out.println("Media do Aluno = " + aluno.getMediaNota());
-				System.out.println("Resultado = " + aluno.getAlunoAprovado2());
-				System.out.println("---------------------------------------------------------");
-				break;
+			Aluno aluno = alunos.get(pos);
+			System.out.println("------------------------------------------------------------");
+			System.out.println("Aluno = " + aluno.getNome());
+			System.out.println("Media do Aluno = " + aluno.getMediaNota());
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
+			System.out.println("------------------------------------------------------------");
+
+			for (int posd = 0; posd < aluno.getDisciplinas().size(); posd++) {
+
+				Disciplina disc = aluno.getDisciplinas().get(posd);
+				System.out.println("Materia = " + disc.getDisciplina() + " Nota = " + disc.getNota());
+
 			}
-
 		}
 
 	}
-
 }
 
 /*
