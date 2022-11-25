@@ -7,8 +7,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import jdev.modulos.modulo10.classes.Aluno;
+import jdev.modulos.modulo10.classes.Diretor;
 import jdev.modulos.modulo10.classes.Disciplina;
-import jdev.modulos.modulo10.classes.Secretario;
+import jdev.modulos.modulo10.classes.auxiliares.FuncaoAutenticacao;
 import jdev.modulos.modulo10.constantes.StatusAluno;
 
 public class PrimeiraClasseJava {
@@ -18,16 +19,18 @@ public class PrimeiraClasseJava {
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe o senha");
 
-		Secretario secretario = new Secretario(); //Diretamente com o objeto
-		secretario.setLogin(login);
-		secretario.setSenha(senha);
-		
-		if (secretario.autenticar()) { //Se TRUE acessa se FALSE não acessa
+		// Secretario secretario = new Secretario(); //Diretamente com o objeto
+		// PermitirAcesso secretario = new Secretario(); //Unicamente quem implementa a
+		// interface. - Interface e a classe que implementa.
+		// Se TRUE acessa se FALSE não acessa # Para autenticar,// necessário passar os
+		// parametros
+		// É uma lista que dentro de temos uma chave que identifica uma sequência de
+		// valores também
+
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
 
 			List<Aluno> alunos = new ArrayList<>();
 
-			// É uma lista que dentro de temos uma chave que identifica uma sequência de
-			// valores também
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
 			for (int qtd = 1; qtd <= 1; qtd++) {
