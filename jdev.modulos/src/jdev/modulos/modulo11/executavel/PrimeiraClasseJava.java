@@ -17,24 +17,43 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
-
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
 
 			if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
 
-				//List<Aluno> alunos = new ArrayList<Aluno>(); //Correto
-				List<Aluno> alunos = null; //Erro
+				List<Aluno> alunos = null; // Erro
+				// List<Aluno> alunos = new ArrayList<Aluno>(); // Correto
 
 				HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-				for (int qtd = 1; qtd <= 2; qtd++) {
+				for (int qtd = 1; qtd <= 1; qtd++) {
 
 					String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
+
+					/*
+					 * String idade = JOptionPane.showInputDialog("Qual a idade?"); String
+					 * dataNascimento = JOptionPane.showInputDialog("Data de Nascimento?"); String
+					 * rg = JOptionPane.showInputDialog("Registro Geral?"); String cpf =
+					 * JOptionPane.showInputDialog("Qual o CPF?"); String mae =
+					 * JOptionPane.showInputDialog("Qual o Nome da Mãe?"); String pai =
+					 * JOptionPane.showInputDialog("Qual o Nome do Pai?"); String matricula =
+					 * JOptionPane.showInputDialog("Data da Matrícula?"); String serie =
+					 * JOptionPane.showInputDialog("Qual Série?"); String escola =
+					 * JOptionPane.showInputDialog("Qual o nome da escola?");
+					 */
 
 					Aluno aluno1 = new Aluno(); /* Aqui será o João */
 
 					aluno1.setNome(nome);
+
+					/*
+					 * aluno1.setIdade(Integer.valueOf(idade));
+					 * aluno1.setDataNascimento(dataNascimento); aluno1.setRegistroGeral(rg);
+					 * aluno1.setNumeroCpf(cpf); aluno1.setNomeMae(mae); aluno1.setNomePai(pai);
+					 * aluno1.setDataMatricula(matricula); aluno1.setSerieMatriculado(serie);
+					 * aluno1.setNomeEscola(escola);
+					 */
 
 					for (int pos = 1; pos <= 1; pos++) {
 						String nomeDisciplina = JOptionPane.showInputDialog("Nome da disciplina " + pos + " ?");
@@ -99,24 +118,12 @@ public class PrimeiraClasseJava {
 				System.out.println("Acesso não permitido");
 			}
 
-			// aqui
+			// Aqui
 		} catch (Exception e) {
-			
-			StringBuilder saida = new StringBuilder();
-			
-			e.printStackTrace();// Imprime erro no console Java
-
-			// Mensagem do erro ou causa
-			System.out.println("Mensagem : " + e.getMessage());
-
-			for (int pos = 0; pos < e.getStackTrace().length; pos++) {
-				saida.append("\n Classe de erro:" + e.getStackTrace()[pos].getClassName());
-				saida.append("\n Metodo de erro:" + e.getStackTrace()[pos].getMethodName());
-				saida.append("\n Linha de erro:" + e.getStackTrace()[pos].getLineNumber());
-			}
-
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas");
+			e.printStackTrace();// Imprimir o erro no console Java
+			JOptionPane.showMessageDialog(null, "Erro ao processar notas " + e.getMessage());
 		}
+
 	}
 
 }
