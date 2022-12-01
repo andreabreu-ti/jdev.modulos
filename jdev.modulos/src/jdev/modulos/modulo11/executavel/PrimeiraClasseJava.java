@@ -14,9 +14,14 @@ import jdev.modulos.modulo10.constantes.StatusAluno;
 
 public class PrimeiraClasseJava {
 
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
 
 		try {
+			
+//			File fil = new File("arquivo.txt");
+//			Scanner scanner = new Scanner(fil);
+			
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
 
@@ -31,8 +36,8 @@ public class PrimeiraClasseJava {
 
 					String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + " ?");
 
+					String idade = JOptionPane.showInputDialog("Qual a idade?");
 					/*
-					 * String idade = JOptionPane.showInputDialog("Qual a idade?"); String
 					 * dataNascimento = JOptionPane.showInputDialog("Data de Nascimento?"); String
 					 * rg = JOptionPane.showInputDialog("Registro Geral?"); String cpf =
 					 * JOptionPane.showInputDialog("Qual o CPF?"); String mae =
@@ -46,9 +51,9 @@ public class PrimeiraClasseJava {
 					Aluno aluno1 = new Aluno(); /* Aqui será o João */
 
 					aluno1.setNome(nome);
+					aluno1.setIdade(Integer.valueOf(idade));
 
 					/*
-					 * aluno1.setIdade(Integer.valueOf(idade));
 					 * aluno1.setDataNascimento(dataNascimento); aluno1.setRegistroGeral(rg);
 					 * aluno1.setNumeroCpf(cpf); aluno1.setNomeMae(mae); aluno1.setNomePai(pai);
 					 * aluno1.setDataMatricula(matricula); aluno1.setSerieMatriculado(serie);
@@ -80,7 +85,6 @@ public class PrimeiraClasseJava {
 							continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover?");
 						}
 					}
-					System.out.println("AQUI ERRO");
 					alunos.add(aluno1);
 				}
 
@@ -119,26 +123,29 @@ public class PrimeiraClasseJava {
 			}
 
 			// Aqui
-		} catch (Exception e) {
-			
+		} catch (NumberFormatException e) {
+
 			StringBuilder saida = new StringBuilder();
-			
-			// Imprimir o erro no console Java
-			e.printStackTrace();
-			
-			//Mensagem do erro ou causa
-			System.out.println(" Mensagem: "+ e.getMessage());
-			
-			for(int pos = 0; pos < e.getStackTrace().length; pos++) {
-			
+
+			e.printStackTrace();// Imprimir o erro no console Java
+
+			System.out.println(" Mensagem: " + e.getMessage());// Mensagem do erro ou causa
+
+			for (int pos = 0; pos < e.getStackTrace().length; pos++) {
+
 				saida.append("\n Classe de erro: " + e.getStackTrace()[pos].getClassName());
 				saida.append("\n Metodo de erro: " + e.getStackTrace()[pos].getMethodName());
 				saida.append("\n Linha de erro: " + e.getStackTrace()[pos].getLineNumber());
 				saida.append("\n Class: " + e.getClass().getName());
 			}
-			
-			
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas " + saida.toString());
+
+			JOptionPane.showMessageDialog(null, "Erro de conversao de numero " + saida.toString());
+		}catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception " + e.getClass());
+		
+		}catch (Exception e) { //Captura todas as exceções que não prevemos
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Arquivo não encontrado " + e.getClass());
 		}
 
 	}
