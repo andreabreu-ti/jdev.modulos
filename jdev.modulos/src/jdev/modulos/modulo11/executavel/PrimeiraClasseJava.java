@@ -1,6 +1,7 @@
 package jdev.modulos.modulo11.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import jdev.modulos.modulo10.classes.Diretor;
 import jdev.modulos.modulo10.classes.Disciplina;
 import jdev.modulos.modulo10.classes.auxiliares.FuncaoAutenticacao;
 import jdev.modulos.modulo10.constantes.StatusAluno;
+import jdev.modulos.modulo11.excecao.ExcecaoProcessarNota;
 
 public class PrimeiraClasseJava {
 
@@ -21,8 +23,13 @@ public class PrimeiraClasseJava {
 
 		try {
 
-			File fil = new File("arquivo.txt");
-			Scanner scanner = new Scanner(fil);
+			lerArquivo();
+//			try {
+//				File fil = new File("arquivo.txt");
+//				Scanner scanner = new Scanner(fil);
+//			} catch (FileNotFoundException e) {
+//				throw new ExcecaoProcessarNota(e.getMessage());
+//			}
 
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
@@ -145,15 +152,25 @@ public class PrimeiraClasseJava {
 		} catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception " + e.getClass());
 
-		} catch (Exception e) { // Captura todas as exceções que não prevemos
+		} catch (ExcecaoProcessarNota e) { // Captura todas as exceções que não prevemos
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Arquivo não encontrado " + e.getClass());
+			JOptionPane.showMessageDialog(null, "Erro da excecao customizada " + e.getClass());
 
 		} finally { // Sempre é executado ocorrendo erros ou não. Porquê, Finally sempre é usado
 					// quando precisa executar um processo acontecendo erro ou não no sistema
 
 			JOptionPane.showMessageDialog(null, "Obrigado por aprender Java");
 
+		}
+
+	}
+
+	public static void lerArquivo() throws ExcecaoProcessarNota {
+		try {
+			File fil = new File("arquivo.txt");
+			Scanner scanner = new Scanner(fil);
+		} catch (Exception e) {
+			throw new ExcecaoProcessarNota(e.getMessage());
 		}
 
 	}
