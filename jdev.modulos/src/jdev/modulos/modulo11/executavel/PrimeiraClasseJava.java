@@ -1,8 +1,10 @@
 package jdev.modulos.modulo11.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -18,10 +20,10 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
-			
-//			File fil = new File("arquivo.txt");
-//			Scanner scanner = new Scanner(fil);
-			
+
+			File fil = new File("arquivo.txt");
+			Scanner scanner = new Scanner(fil);
+
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
 
@@ -140,12 +142,18 @@ public class PrimeiraClasseJava {
 			}
 
 			JOptionPane.showMessageDialog(null, "Erro de conversao de numero " + saida.toString());
-		}catch (NullPointerException e) {
+		} catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception " + e.getClass());
-		
-		}catch (Exception e) { //Captura todas as exceções que não prevemos
+
+		} catch (Exception e) { // Captura todas as exceções que não prevemos
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Arquivo não encontrado " + e.getClass());
+
+		} finally { // Sempre é executado ocorrendo erros ou não. Porquê, Finally sempre é usado
+					// quando precisa executar um processo acontecendo erro ou não no sistema
+
+			JOptionPane.showMessageDialog(null, "Obrigado por aprender Java");
+
 		}
 
 	}
