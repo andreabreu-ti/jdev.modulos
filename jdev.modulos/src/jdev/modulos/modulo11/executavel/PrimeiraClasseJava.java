@@ -24,12 +24,6 @@ public class PrimeiraClasseJava {
 		try {
 
 			lerArquivo();
-//			try {
-//				File fil = new File("arquivo.txt");
-//				Scanner scanner = new Scanner(fil);
-//			} catch (FileNotFoundException e) {
-//				throw new ExcecaoProcessarNota(e.getMessage());
-//			}
 
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
@@ -132,7 +126,7 @@ public class PrimeiraClasseJava {
 			}
 
 			// Aqui
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 
 			StringBuilder saida = new StringBuilder();
 
@@ -149,12 +143,6 @@ public class PrimeiraClasseJava {
 			}
 
 			JOptionPane.showMessageDialog(null, "Erro de conversao de numero " + saida.toString());
-		} catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Opaaa um null pointer exception " + e.getClass());
-
-		} catch (ExcecaoProcessarNota e) { // Captura todas as exceções que não prevemos
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro da excecao customizada " + e.getClass());
 
 		} finally { // Sempre é executado ocorrendo erros ou não. Porquê, Finally sempre é usado
 					// quando precisa executar um processo acontecendo erro ou não no sistema
@@ -165,13 +153,10 @@ public class PrimeiraClasseJava {
 
 	}
 
-	public static void lerArquivo() throws ExcecaoProcessarNota {
-		try {
-			File fil = new File("arquivo.txt");
-			Scanner scanner = new Scanner(fil);
-		} catch (Exception e) {
-			throw new ExcecaoProcessarNota(e.getMessage());
-		}
+	public static void lerArquivo() throws FileNotFoundException {
+
+		File fil = new File("arquivo.txt");
+		Scanner scanner = new Scanner(fil);
 
 	}
 
