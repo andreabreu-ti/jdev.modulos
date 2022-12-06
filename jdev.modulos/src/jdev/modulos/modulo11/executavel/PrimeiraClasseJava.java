@@ -14,7 +14,6 @@ import jdev.modulos.modulo10.classes.Diretor;
 import jdev.modulos.modulo10.classes.Disciplina;
 import jdev.modulos.modulo10.classes.auxiliares.FuncaoAutenticacao;
 import jdev.modulos.modulo10.constantes.StatusAluno;
-import jdev.modulos.modulo11.excecao.ExcecaoProcessarNota;
 
 public class PrimeiraClasseJava {
 
@@ -23,15 +22,14 @@ public class PrimeiraClasseJava {
 
 		try {
 
-			lerArquivo();
+//			lerArquivo();
 
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
 
 			if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
 
-				List<Aluno> alunos = null; // Erro
-				// List<Aluno> alunos = new ArrayList<Aluno>(); // Correto
+				List<Aluno> alunos = new ArrayList<Aluno>(); // Correto
 
 				HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
