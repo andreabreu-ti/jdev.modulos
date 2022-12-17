@@ -14,7 +14,15 @@ public class Matriz {
 		notas[1][1] = 60;
 		notas[1][2] = 30;
 		
-		System.out.println(notas);
+		//Percorre as Linhas
+		for (int posLinha = 0; posLinha < notas.length; posLinha++) {
+			
+			System.out.println("================================");
+			//Para cada Linha Percorre as Colunas ARRAY
+			for(int posColuna = 0; posColuna < notas[posLinha].length; posColuna++ ) {
+				System.out.println("Valor da Matriz: "+notas[posLinha][posColuna]);
+			}
+		}
 		
 		
 	}
