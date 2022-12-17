@@ -1,7 +1,5 @@
 package jdev.modulos.modulo11.executavel;
 
-import java.util.Iterator;
-
 import jdev.modulos.modulo11.classes.Aluno;
 import jdev.modulos.modulo11.classes.Disciplina;
 
@@ -35,10 +33,22 @@ public class ArrayVetor {
 			
 			System.out.println("Disciplina: "+ d.getDisciplina());
 			System.out.println("As notas da disciplina são: ");
+			
+			double notaMaxima = 0.0;
 			for (int pos= 0;pos < d.getNota().length; pos++) {
 				
 				System.out.println("Nota "+pos+ " é igual = "+d.getNota()[pos]);
+				
+				if(pos == 0) {
+					notaMaxima = d.getNota()[pos];
+				}else {
+					if(d.getNota()[pos] > notaMaxima) {
+						notaMaxima = d.getNota()[pos];
+					}
+				}
+				
 			}
+			System.out.println("A maior nota da Disciplina = "+d.getDisciplina() + " é de valor "+notaMaxima);
 			
 		}
 	}
