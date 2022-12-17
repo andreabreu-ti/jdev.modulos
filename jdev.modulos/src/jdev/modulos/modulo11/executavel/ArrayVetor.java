@@ -1,5 +1,7 @@
 package jdev.modulos.modulo11.executavel;
 
+import javax.swing.JOptionPane;
+
 public class ArrayVetor {
 
 	public static void main(String[] args) {
@@ -10,16 +12,17 @@ public class ArrayVetor {
 		 * Array sempre deve ter a quantidade de posições definidas
 		 */
 
-		double[] notas = new double[5];
+		String posicoes = JOptionPane.showInputDialog("Quantas posições o array deve ter?");
 
-		/* Atribuir valor nas posições do array */
-		notas[0] = 9.8;
-		notas[1] = 7.8;
-		notas[2] = 3.8;
-		notas[3] = 6.8;
+		double[] notas = new double[Integer.parseInt(posicoes)];
 
-		for (int posit = 0; posit < 5; posit++) {
-			System.out.println("Nota " + (posit + 1) + " = " + notas[posit]);
+		for(int pos= 0; pos < notas.length; pos++){
+			String valor = JOptionPane.showInputDialog("Qual o valor da posição "+pos+"?");
+			notas[pos] = Double.valueOf(valor);
+		}
+
+		for (int pos= 0; pos < notas.length; pos++) {
+			System.out.println("Nota " + (pos + 1) + " = " + notas[pos]);
 		}
 
 	}
