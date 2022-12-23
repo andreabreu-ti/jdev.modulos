@@ -1,26 +1,70 @@
 package jdev.modulos.modulo11.executavel;
 
+import jdev.modulos.modulo11.classes.Aluno;
+import jdev.modulos.modulo11.classes.Disciplina;
+
 public class ArrayVetor {
 
 	public static void main(String[] args) {
 
-		/*
-		 * Array pode ser de todos os tipos de dados e objetos também
-		 * 
-		 * Array sempre deve ter a quantidade de posições definidas
-		 */
+		double[] notas = { 8.8, 9.7, 7.6, 6.8 };
+		double[] notasLogica = { 8.3, 9.2, 7.1, 6.7 };
 
-		double[] notas = new double[5];
+		Aluno aluno = new Aluno();
+		aluno.setNome("André Abreu");
+		aluno.setNomeEscola("JDEV Treinamento");
 
-		/* Atribuir valor nas posições do array */
-		notas[0] = 9.8;
-		notas[1] = 7.8;
-		notas[2] = 3.8;
-		notas[3] = 6.8;
+		Disciplina disciplina = new Disciplina();
+		disciplina.setDisciplina("Curso de Java");
+		disciplina.setNota(notas);
+		
+		aluno.getDisciplinas().add(disciplina);
+		
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Lógica de Programação");
+		disciplina2.setNota(notasLogica);
 
-		for (int posit = 0; posit < 5; posit++) {
-			System.out.println("Nota " + (posit + 1) + " = " + notas[posit]);
+		aluno.getDisciplinas().add(disciplina2);
+		
+		System.out.println("Nome do aluno = "+aluno.getNome()+ " inscrito na escola "+aluno.getNomeEscola());
+		System.out.println("------------------Disciplinas do Aluno------------------");
+		for (Disciplina d : aluno.getDisciplinas()) {
+			
+			
+			System.out.println("Disciplina: "+ d.getDisciplina());
+			System.out.println("As notas da disciplina são: ");
+			
+			double notaMaxima = 0.0;
+			double notaMinima = 0.0;
+			for (int pos= 0;pos < d.getNota().length; pos++) {
+				
+				System.out.println("Nota "+pos+ " é igual = "+d.getNota()[pos]);
+				
+				if(pos == 0) {
+					notaMaxima = d.getNota()[pos];
+				}else {
+					if(d.getNota()[pos] > notaMaxima) {
+						notaMaxima = d.getNota()[pos];
+					}
+				}
+				if(pos == 0) {
+					notaMinima = d.getNota()[pos];
+				}else {
+					if(d.getNota()[pos] < notaMinima) {
+						notaMinima = d.getNota()[pos];
+					}
+				}
+				
+			}
+			System.out.println("A maior nota da Disciplina = "+d.getDisciplina() + " é de valor "+notaMaxima);
+			System.out.println("A menor nota da Disciplina = "+d.getDisciplina() + " é de valor "+notaMinima);
+			
 		}
-
 	}
 }
+
+
+
+
+
+
