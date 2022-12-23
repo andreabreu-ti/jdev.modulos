@@ -12,7 +12,6 @@ public class AulaThread {
 			public void run() { // Executa o que nos queremos
 				
 				// Codigo da rotina
-				
 				// Código da rotina que eu quero executar em paralelo
 				for (int pos = 0; pos < 10; pos++) {
 
@@ -22,7 +21,6 @@ public class AulaThread {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-
 				}
 				// Fim do codigo em paralelo
 
