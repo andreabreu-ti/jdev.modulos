@@ -6,15 +6,12 @@ public class AulaThread {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		//Thread processando em paralelo
+		// Thread processando em paralelo
 		new Thread() {
-
 			public void run() { // Executa o que nos queremos
-				
 				// Codigo da rotina
 				// Código da rotina que eu quero executar em paralelo
 				for (int pos = 0; pos < 10; pos++) {
-
 					System.out.println("Executando alguma rotina, por exemplo envio de e-mail");
 					try {
 						Thread.sleep(1000);
@@ -23,10 +20,24 @@ public class AulaThread {
 					}
 				}
 				// Fim do codigo em paralelo
-
 			}
-
 		}.start();// Start liga a thread que fica processando paralelamente por tras
+
+		// #####################DIVISAO DAS THREAD
+
+		// Thread processando em paralelo envio de nota fiscal
+		new Thread() {
+			public void run() {
+				for (int pos = 0; pos < 10; pos++) {
+					System.out.println("Executando alguma rotina, por exemplo envio de notas fiscais");
+					try {
+						Thread.sleep(4000);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}.start();
 
 		// Codigo do sistema do usuário continua o fluxo de trabalho
 		System.out.println("CHEGOU AO FIM DO CODIGO DE TESTE DE THREAD");
