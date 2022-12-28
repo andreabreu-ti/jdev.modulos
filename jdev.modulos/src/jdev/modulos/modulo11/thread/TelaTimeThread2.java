@@ -27,7 +27,7 @@ public class TelaTimeThread2 extends JDialog {
 
 	private JButton jButton = new JButton("Add Lista");
 	private JButton jButton2 = new JButton("Stop");
-	
+
 	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
 
 	public TelaTimeThread2() { // Constructor executa o que tiver dentro no momento da abertura ou execução
@@ -74,11 +74,19 @@ public class TelaTimeThread2 extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ObjetoFilaThread filaThread = new ObjetoFilaThread();
-				filaThread.setNome(mostraTempo.getText());
-				filaThread.setEmail(mostraTempo2.getText());
+				if(fila == null) {
+					fila = new ImplementacaoFilaThread();
+					fila.start();
+				}
 				
-				fila.add(filaThread);
+				for (int qtd = 0; qtd < 100; qtd++) { //Simulando 100 envios em massa
+
+					ObjetoFilaThread filaThread = new ObjetoFilaThread();
+					filaThread.setNome(mostraTempo.getText());
+					filaThread.setEmail(mostraTempo2.getText() + " - " + qtd);
+
+					fila.add(filaThread);
+				}
 			}
 		});
 
@@ -87,10 +95,12 @@ public class TelaTimeThread2 extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				fila.stop();
+				fila = null;
+				System.out.println("Stop....");
 
 			}
 		});
-
 
 		fila.start();
 		add(jPanel, BorderLayout.WEST);
