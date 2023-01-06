@@ -15,7 +15,7 @@ public class DatasCalendarManipulacao {
 		calendar.setTime(new SimpleDateFormat("dd-MM-yyyy").parse("10-03-2021"));
 		
 		calendar.add(Calendar.DAY_OF_MONTH, -40); //Data de Hoje mais 40 dias
-		System.out.println("Somando dia do mes: "+new SimpleDateFormat("dd-MM-yyyy").format(calendar.getTime()));
+		System.out.println("Somando dia do mês: "+new SimpleDateFormat("dd-MM-yyyy").format(calendar.getTime()));
 		
 		calendar.add(Calendar.MONTH, 1); //Somando 1 mês 
 		System.out.println("Somando o mes: "+new SimpleDateFormat("dd-MM-yyyy").format(calendar.getTime()));
