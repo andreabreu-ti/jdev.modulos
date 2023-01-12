@@ -1,3 +1,5 @@
-André Abreu;pessoa1@gmail.com;50
-Pessoa 2;pessoa2@gmail.com;30
-Fulano de Tal;pessoa3@gmail.com;45
+André Abreu|pessoa1@gmail.com|50
+Pessoa 2|pessoa2@gmail.com|30
+Fulano de Tal|pessoa3@gmail.com|45
+
+Lionel Messi|messi@gmail.com|38
