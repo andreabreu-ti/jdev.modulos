@@ -34,8 +34,8 @@ public class Arquivos {
 		pessoas.add(pessoa3);
 		
 		
-		//File arquivo = new File("C:\\Users\\aandd\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivohome.txt");
-		File arquivo = new File("C:\\Users\\andre_abreu\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivowork.txt");
+		File arquivo = new File("C:\\Users\\aandd\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivohome.csv");
+		//File arquivo = new File("C:\\Users\\andre_abreu\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivowork.txt");
 		
 		if(!arquivo.exists()) {
 			arquivo.createNewFile();

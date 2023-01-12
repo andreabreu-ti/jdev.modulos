@@ -15,7 +15,7 @@ public class LerArquivoTxt {
 //				"C:\\Users\\andre_abreu\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivowork.txt"));
 
 		FileInputStream entradaArquivo = new FileInputStream(new File(
-				"C:\\Users\\aandd\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivohome.txt"));
+				"C:\\Users\\aandd\\git\\jdev.modulos\\jdev.modulos\\src\\jdev\\modulos\\modulo16\\arquivohome.csv"));
 		
 		Scanner lerArquivo = new Scanner(entradaArquivo, "UTF-8");
 
@@ -24,7 +24,7 @@ public class LerArquivoTxt {
 			String linha = lerArquivo.nextLine();
 			if (linha != null && !linha.isEmpty()) {
 
-				String[] dados = linha.split("\\|");
+				String[] dados = linha.split("\\;");
 				Pessoa pessoa = new Pessoa();
 				pessoa.setNome(dados[0]);
 				pessoa.setEmail(dados[1]);
